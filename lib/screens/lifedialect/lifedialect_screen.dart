@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jejudialect/constants/strings.dart';
 import 'package:jejudialect/models/life_dialect.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
+import 'package:jejudialect/screens/lifedialect/components/lifedialect_item.dart';
 import 'package:provider/provider.dart';
 
 class LifeDialectScreen extends StatefulWidget {
@@ -32,16 +33,11 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         itemCount: items.length,
         itemBuilder: (context, index) {
 
-          return ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage("$baseUrl/${items[index].image1Url}"),
-            ),
-            title: Text(items[index].name),
-            subtitle: Text(items[index].siteName),
-          );
+          return LifedialectItem(item: items[index],);
         },
       ),
     );
