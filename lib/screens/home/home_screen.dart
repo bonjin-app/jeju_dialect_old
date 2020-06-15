@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jejudialect/screens/dictionary/dictionary_screen.dart';
+import 'package:jejudialect/screens/keyword/keyword_screen.dart';
 import 'package:jejudialect/screens/lifedialect/lifedialect_screen.dart';
+import 'package:jejudialect/screens/proverb/proverb_screen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -66,7 +69,10 @@ class HomeScreen extends StatelessWidget {
                     textColor: Colors.white,
                     color: Colors.orange,
                     onPressed: () {
-                      print("헿로우");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProverbScreen()));
                     },
                   ),
                 ),
@@ -83,7 +89,10 @@ class HomeScreen extends StatelessWidget {
                     textColor: Colors.white,
                     color: Colors.orange,
                     onPressed: () {
-                      print("헿로우");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DictionaryScreen()));
                     },
                   ),
                 ),
@@ -95,7 +104,10 @@ class HomeScreen extends StatelessWidget {
                     textColor: Colors.white,
                     color: Colors.orange,
                     onPressed: () {
-                      print("헿로우");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => KeywordScreen()));
                     },
                   ),
                 ),

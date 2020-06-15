@@ -13,12 +13,17 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
 
   LifeDialectProvider lifeDialectProvider;
 
+  List<Item> items = [];
+
   @override
   void initState() {
     super.initState();
-
     lifeDialectProvider = Provider.of<LifeDialectProvider>(context, listen: false);
-    lifeDialectProvider.requestLifeDialects();
+    lifeDialectProvider.requestLifeDialects().then((value) {
+      setState(() {
+        items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
+      });
+    });
   }
 
   @override
