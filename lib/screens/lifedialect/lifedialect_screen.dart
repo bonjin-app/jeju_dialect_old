@@ -32,10 +32,8 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        itemCount: lifeDialectProvider.lifeDialect.jejunetApi.items.item.length,
+        itemCount: items.length,
         itemBuilder: (context, index) {
-
-          var items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
 
           return ListTile(
             leading: CircleAvatar(
