@@ -12,7 +12,6 @@ class LifeDialectScreen extends StatefulWidget {
 class _LifeDialectScreenState extends State<LifeDialectScreen> {
 
   LifeDialectProvider lifeDialectProvider;
-  List<Item> items;
 
   @override
   void initState() {
@@ -20,8 +19,6 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
 
     lifeDialectProvider = Provider.of<LifeDialectProvider>(context, listen: false);
     lifeDialectProvider.requestLifeDialects();
-
-    items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
   }
 
   @override
@@ -30,8 +27,10 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        itemCount: items.length,
+        itemCount: lifeDialectProvider.lifeDialect.jejunetApi.items.item.length,
         itemBuilder: (context, index) {
+
+          var items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
 
           return ListTile(
             leading: CircleAvatar(
