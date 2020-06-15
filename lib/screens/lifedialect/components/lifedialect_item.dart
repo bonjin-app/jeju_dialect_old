@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:jejudialect/constants/strings.dart';
+import 'package:jejudialect/enums/life_dialect_type.dart';
 import 'package:jejudialect/models/life_dialect.dart';
+import 'package:jejudialect/screens/lifedialect/lifedialect_detail_screen.dart';
 import 'package:jejudialect/widgets/custom_tile.dart';
 
-class LifedialectItem extends StatelessWidget {
+class LifeDialectItem extends StatelessWidget {
   final Item item;
 
-  const LifedialectItem({Key key, this.item}) : super(key: key);
+  const LifeDialectItem({Key key, this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return CustomTile(
       onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => LifeDialectDetailScreen(item: item,)
+        ));
       },
       title: Text(
         item.siteName,

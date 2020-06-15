@@ -31,13 +31,17 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          "제주방언"
+        ),
+      ),
       body: ListView.builder(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         itemCount: items.length,
         itemBuilder: (context, index) {
 
-          return LifedialectItem(item: items[index],);
+          return LifeDialectItem(item: items[index],);
         },
       ),
     );
