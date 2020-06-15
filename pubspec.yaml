@@ -30,7 +30,20 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # 로그을 출력하기 위한 플러그인(옵션)
+  logger: ^0.9.1
+
+  # 여러 페이지에서 인증 정보를 공유하기 위해 사용할 Provider 기능을 제공하는 플러그인
+  provider: ^4.1.2
+
+  # HTTP 리소스를 쉽게 사용할 수있는 일련의 고급 함수 및 클래스가 포함
   http: ^0.12.1
+
+  # XML 문자열을 구문 분석하고 결과 구문 분석 트리를 다음 XML JSON 규칙으로 변환
+  xml2json: ^4.2.0
+
+  # 이것은 순수한 Dart HTML5 파서. Python 의 html5lib 포트
+  html: ^0.14.0+3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
