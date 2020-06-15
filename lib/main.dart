@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jejudialect/providers/dictionary_provider.dart';
+import 'package:jejudialect/providers/keyword_provider.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
+import 'package:jejudialect/providers/proverb_provider.dart';
 import 'package:jejudialect/screens/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +17,15 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => LifeDialectProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProverbProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DictionaryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => KeywordProvider(),
         )
       ],
       child: MaterialApp(
