@@ -28,7 +28,10 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('제주사전'),
+        backgroundColor: Colors.orange,
+      ),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {

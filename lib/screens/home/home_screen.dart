@@ -20,7 +20,6 @@ void main() {
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -36,44 +35,47 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Image(
-              image: AssetImage('images/jeju.png'),
-              width: 200,
-              height: 200,
-              fit: BoxFit.cover,
-            ),
+//            Image(
+//              image: AssetImage('images/jeju.png'),
+//              width: 200,
+//              height: 200,
+//              fit: BoxFit.cover,
+//            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 new SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 200,
+                  height: 200,
                   child: RaisedButton(
-                    child: Text("제주방언"),
-                    textColor: Colors.white,
-                    color: Colors.orange,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LifeDialectScreen()));
-                    },
-                  ),
+                      child: Text("제주방언"),
+                      textColor: Colors.white,
+                      color: Colors.orange,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LifeDialectScreen()));
+                      },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0))),
                 ),
                 new SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 200,
+                  height: 200,
                   child: RaisedButton(
-                    child: Text("제주속담"),
-                    textColor: Colors.white,
-                    color: Colors.orange,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProverbScreen()));
-                    },
-                  ),
+//                    child: Image.asset('images/jeju.png'),
+                      child: Text("제주속담"),
+                      textColor: Colors.white,
+                      color: Colors.orange,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProverbScreen()));
+                      },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0))),
                 ),
               ],
             ),
@@ -81,8 +83,8 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 new SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 200,
+                  height: 200,
                   child: RaisedButton(
                     child: Text("제주 사전"),
                     textColor: Colors.white,
@@ -93,11 +95,12 @@ class HomeScreen extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => DictionaryScreen()));
                     },
-                  ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0))),
                 ),
                 new SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 200,
+                  height: 200,
                   child: RaisedButton(
                     child: Text("색인어 사전"),
                     textColor: Colors.white,
@@ -108,7 +111,8 @@ class HomeScreen extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => KeywordScreen()));
                     },
-                  ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0))),
                 ),
               ],
             ),

@@ -30,7 +30,10 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('생활방언'),
+        backgroundColor: Colors.orange,
+      ),
       body: ListView.builder(
         itemCount: lifeDialectProvider.lifeDialect.jejunetApi.items.item.length,
         itemBuilder: (context, index) {

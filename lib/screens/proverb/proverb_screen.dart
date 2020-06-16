@@ -29,7 +29,10 @@ class _ProverbScreenState extends State<ProverbScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('색인어사전'),
+        backgroundColor: Colors.orange,
+      ),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
