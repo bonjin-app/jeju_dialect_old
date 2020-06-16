@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jejudialect/constants/strings.dart';
 import 'package:jejudialect/models/life_dialect.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
+import 'package:jejudialect/screens/lifedialect/components/lifedialect_item.dart';
 import 'package:provider/provider.dart';
 
 class LifeDialectScreen extends StatefulWidget {
@@ -30,10 +31,7 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('생활방언'),
-        backgroundColor: Colors.orange,
-      ),
+      appBar: AppBar(),
       body: ListView.builder(
         itemCount: lifeDialectProvider.lifeDialect.jejunetApi.items.item.length,
         itemBuilder: (context, index) {
