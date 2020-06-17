@@ -31,20 +31,17 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+            "제주방언"
+        ),
+      ),
       body: ListView.builder(
-        itemCount: lifeDialectProvider.lifeDialect.jejunetApi.items.item.length,
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        itemCount: items.length,
         itemBuilder: (context, index) {
 
-          var items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
-
-          return ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage("$baseUrl/${items[index].image1Url}"),
-            ),
-            title: Text(items[index].name),
-            subtitle: Text(items[index].siteName),
-          );
+          return LifeDialectItem(item: items[index],);
         },
       ),
     );
