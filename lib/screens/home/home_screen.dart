@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(top: 74),
+                margin: EdgeInsets.only(top: 54),
                 padding: EdgeInsets.only(left: 20),
                 child: Text(
                   _title,
@@ -40,18 +40,6 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 12,
               ),
-//              Container(
-//                width: double.infinity,
-//                padding: EdgeInsets.only(left: 80),
-//                child: Text(
-//                  '',
-//                  style: TextStyle(
-//                    fontSize: 12,
-//                    fontWeight: FontWeight.w900,
-//                    color: Colors.black54
-//                  ),
-//                ),
-//              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                   child: SearchBar()

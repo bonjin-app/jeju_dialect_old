@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jejudialect/screens/home/home_screen.dart';
+import 'package:jejudialect/screens/setting/setting_screen.dart';
 
 class TabScreen extends StatefulWidget {
   @override
@@ -26,12 +27,8 @@ class _TabScreenState extends State<TabScreen> {
         },
         children: <Widget>[
           HomeScreen(),
-          Container(
-            child: Center(child: Text("groups")),
-          ),
-          Container(
-            child: Center(child: Text("profile")),
-          ),
+          SettingScreen(),
+          SettingScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
