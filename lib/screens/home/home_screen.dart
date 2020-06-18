@@ -1,157 +1,125 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:jejudialect/screens/dictionary/dictionary_screen.dart';
 import 'package:jejudialect/screens/keyword/keyword_screen.dart';
 import 'package:jejudialect/screens/lifedialect/lifedialect_screen.dart';
 import 'package:jejudialect/screens/proverb/proverb_screen.dart';
+import 'package:jejudialect/widgets/bottom_nav_bar.dart';
+import 'package:jejudialect/widgets/category_card.dart';
+import 'package:jejudialect/widgets/search_bar.dart';
+import 'package:line_awesome_icons/line_awesome_icons.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const String _longText = '제줏 말싸미';
-  
+  static const String _title = 'JeJu Dialect\n      LANGUAGE';
+
   @override
   Widget build(BuildContext context) {
-
+    var size = MediaQuery.of(context);
     return Scaffold(
-      body: Column(
-        children: [
+      bottomNavigationBar: BottomNavBar(),
+      body: Stack(
+        children: <Widget>[
           Container(
-            height: 300,
+            // Here the height of the container is 45% of our total height
+//            height: size.height * .45,
             decoration: BoxDecoration(
-              color: Colors.orange,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30)),
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          _longText,
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF5F8FD),
-                              borderRadius: BorderRadius.circular(30)
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: TextField(
-
-                                  decoration: InputDecoration(
-                                    hintText: 'search',
-                                    border: InputBorder.none,
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                },
-                                child: Container(child: Icon(Icons.search)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+//              color: Color(0xFFF5CEB8),
+              color: Color(0xffffc266),
+              image: DecorationImage(
+                alignment: Alignment.centerLeft,
+                image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
               ),
             ),
           ),
-          Expanded(
-            child: Container(
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      SizedBox(
-                        width: 150,
-                        height: 150,
-                        child: RaisedButton(
-                            child: Text("제주방언"),
-                            textColor: Colors.white,
-                            color: Colors.orange,
-                            onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LifeDialectScreen()));
-                            },
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0))),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 52,
+                      width: 52,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF2BEA1),
+                        shape: BoxShape.circle,
                       ),
-                      SizedBox(
-                        width: 150,
-                        height: 150,
-                        child: RaisedButton(
-                            child: Text("제주속담"),
-                            textColor: Colors.white,
-                            color: Colors.orange,
-                            onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProverbScreen()));
-                            },
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0))),
-                      ),
-                    ],
+                      child: SvgPicture.asset("assets/icons/menu.svg"),
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      SizedBox(
-                        width: 150,
-                        height: 150,
-                        child: RaisedButton(
-                            child: Text("제주 사전"),
-                            textColor: Colors.white,
-                            color: Colors.orange,
-                            onPressed: () {
-                          Navigator.push(
+                  Text(
+                    _title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .display1
+                        .copyWith(fontWeight: FontWeight.w900),
+                  ),
+                  SearchBar(),
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      childAspectRatio: .85,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+                      children: <Widget>[
+                        CategoryCard(
+                          title: "제주 생활 방언",
+                          svgSrc: "assets/icons/Hamburger.svg",
+                          press: () {
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DictionaryScreen()));
-                            },
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0))),
-                      ),
-                      SizedBox(
-                        width: 150,
-                        height: 150,
-                        child: RaisedButton(
-                            child: Text("색인어 사전"),
-                            textColor: Colors.white,
-                            color: Colors.orange,
-                            onPressed: () {
-                          Navigator.push(
+                                  builder: (context) =>
+                                      LifeDialectScreen()
+                              ),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "제주 속담",
+                          svgSrc: "assets/icons/Excrecises.svg",
+                          press: () {
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => KeywordScreen()));
-                            },
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0))),
-                      ),
-                    ],
+                                  builder: (context) =>
+                                      ProverbScreen()
+                              ),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "제주 사전",
+                          svgSrc: "assets/icons/Meditation.svg",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      DictionaryScreen()
+                              ),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "색인어 사전",
+                          svgSrc: "assets/icons/yoga.svg",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      KeywordScreen()
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
