@@ -3,7 +3,7 @@ import 'package:jejudialect/providers/dictionary_provider.dart';
 import 'package:jejudialect/providers/keyword_provider.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
 import 'package:jejudialect/providers/proverb_provider.dart';
-import 'package:jejudialect/screens/home/home_screen.dart';
+import 'package:jejudialect/widgets/tab_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: HomeScreen(),
+        home: TabScreen(),
       ),
     );
   }

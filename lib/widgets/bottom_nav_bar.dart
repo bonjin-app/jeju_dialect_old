@@ -11,23 +11,23 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-      height: 80,
+      height: 70,
       color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           BottomNavItem(
-            title: "Today",
-            svgScr: "assets/icons/calendar.svg",
+            title: "Main",
+            svgScr: "assets/icons/main.svg",
           ),
           BottomNavItem(
-            title: "All Exercises",
-            svgScr: "assets/icons/gym.svg",
+            title: "즐겨찾기",
+            svgScr: "assets/icons/star.svg",
             isActive: true,
           ),
           BottomNavItem(
-            title: "Settings",
-            svgScr: "assets/icons/Settings.svg",
+            title: "설 정",
+            svgScr: "assets/icons/setting.svg",
           ),
         ],
       ),
@@ -58,6 +58,7 @@ class BottomNavItem extends StatelessWidget {
           SvgPicture.asset(
             svgScr,
             color: isActive ? kActiveIconColor : kTextColor,
+            width: 30, height: 30,
           ),
           Text(
             title,
