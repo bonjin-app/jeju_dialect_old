@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jejudialect/screens/home/home_screen.dart';
+import 'package:jejudialect/screens/search/search_screen.dart';
 import 'package:jejudialect/screens/setting/setting_screen.dart';
 
 class TabScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: NeverScrollableScrollPhysics(), //pageView disable swipe
         controller: _pageController,
         onPageChanged: (index) {
           setState(() {
@@ -27,7 +29,7 @@ class _TabScreenState extends State<TabScreen> {
         },
         children: <Widget>[
           HomeScreen(),
-          SettingScreen(),
+          FavoriteScreen(),
           SettingScreen(),
         ],
       ),
@@ -36,7 +38,7 @@ class _TabScreenState extends State<TabScreen> {
         onTap: (index) {
           _pageController.jumpToPage(index);
         },
-        selectedItemColor: Colors.black87,
+        selectedItemColor: Colors.deepOrange,
         unselectedItemColor: Colors.grey.shade400,
         selectedLabelStyle: TextStyle(
           fontWeight: FontWeight.w600,
@@ -54,15 +56,15 @@ class _TabScreenState extends State<TabScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.star_border,
+              Icons.search,
             ),
-            title: Text("즐겨찾기"),
+            title: Text("검색"),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
             ),
-            title: Text("설 정"),
+            title: Text("설정"),
           ),
         ],
       ),

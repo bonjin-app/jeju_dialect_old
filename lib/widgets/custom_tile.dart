@@ -12,9 +12,9 @@ class CustomTile extends StatelessWidget {
 
   const CustomTile(
       {Key key,
-      @required this.leading,
       @required this.title,
-      @required this.subtitle,
+      this.subtitle,
+      this.leading,
       this.icon,
       this.trailing,
       this.margin = const EdgeInsets.all(0),
@@ -32,7 +32,7 @@ class CustomTile extends StatelessWidget {
         margin: margin,
         child: Row(
           children: <Widget>[
-            leading,
+            leading ?? Container(),
             Expanded(
               child: Container(
                 margin: EdgeInsets.only(left: 16),
@@ -57,7 +57,7 @@ class CustomTile extends StatelessWidget {
                           Row(
                             children: <Widget>[
                               icon ?? Container(),
-                              subtitle,
+                              subtitle ?? Container(),
                             ],
                           )
                         ],

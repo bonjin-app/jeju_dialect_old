@@ -20,11 +20,13 @@ class LifeDialectDetailScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                child: Image(
-                  image: NetworkImage("$baseUrl/${item.image1Url}"),
+                child: Hero(
+                  tag: item.image1Url,
+                  child: Image(
+                    image: NetworkImage("$baseUrl/${item.image1Url}"),
+                  ),
                 ),
               ),
-
               SizedBox(height: 30,),
               Container(
                 padding: EdgeInsets.all(16),

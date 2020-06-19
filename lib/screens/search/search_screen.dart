@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jejudialect/models/life_dialect.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
@@ -5,13 +6,13 @@ import 'package:jejudialect/screens/lifedialect/components/lifedialect_item.dart
 import 'package:jejudialect/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 
-class LifeDialectScreen extends StatefulWidget {
+class FavoriteScreen extends StatefulWidget {
   @override
-  _LifeDialectScreenState createState() => _LifeDialectScreenState();
+  State<StatefulWidget> createState() => _FavoriteScreenState();
 }
 
-class _LifeDialectScreenState extends State<LifeDialectScreen> {
-
+class _FavoriteScreenState extends State<FavoriteScreen>
+    with AutomaticKeepAliveClientMixin {
   LifeDialectProvider lifeDialectProvider;
 
   List<Item> items = [];
@@ -19,7 +20,8 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   @override
   void initState() {
     super.initState();
-    lifeDialectProvider = Provider.of<LifeDialectProvider>(context, listen: false);
+    lifeDialectProvider =
+        Provider.of<LifeDialectProvider>(context, listen: false);
     lifeDialectProvider.requestLifeDialects().then((value) {
       setState(() {
         items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
@@ -30,27 +32,24 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color(0xffffc266),
-      ),
       body: Column(
         children: [
           Stack(
             children: [
               Container(
                 width: double.infinity,
-                height: 180,
+                height: 220,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color(0xffffc266),
                   borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(20), bottomLeft: Radius.circular(20)
-                  ),
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20)),
+                  color: Color(0xffffc266),
                 ),
                 child: Container(
+                  margin: EdgeInsets.only(top: 54),
                   child: Text(
-                    '제주 생활방언',
+                    '검색',
                     style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
@@ -59,7 +58,7 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 100),
                 padding: EdgeInsets.all(16),
                 child: SearchBar(),
               ),
@@ -82,4 +81,7 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

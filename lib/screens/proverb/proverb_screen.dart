@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jejudialect/models/proverb.dart';
 import 'package:jejudialect/providers/proverb_provider.dart';
+import 'package:jejudialect/screens/proverb/components/proverb_item.dart';
+import 'package:jejudialect/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 
 class ProverbScreen extends StatefulWidget {
@@ -8,7 +11,7 @@ class ProverbScreen extends StatefulWidget {
   _ProverbScreenState createState() => _ProverbScreenState();
 }
 
-class _ProverbScreenState extends State<ProverbScreen> {
+class _ProverbScreenState extends State<ProverbScreen>{
 
   ProverbProvider proverbProvider;
 
@@ -30,37 +33,49 @@ class _ProverbScreenState extends State<ProverbScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('색인어사전'),
-        backgroundColor: Colors.orange,
+        elevation: 0,
+        backgroundColor: Color(0xffffc266),
       ),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-
-          return ListTile(
-
-            title: Text(items[index].name),
-            subtitle: Column(
-              children: <Widget>[
-                Text(items[index].contents),
-                Text(items[index].engContents),
-                Text(items[index].chiContents),
+      body: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xffffc266),
+            ),
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(16),
+                  width: double.infinity,
+                  child: Text(
+                    '제주 속담',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black54),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: SearchBar(),
+                ),
               ],
             ),
-            trailing: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.red,
-              ),
-              child: IconButton(
-                icon: Icon(Icons.audiotrack, color: Colors.white,),
-                onPressed: () {
-
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              child: ListView.builder(
+                padding: EdgeInsets.all(16),
+                shrinkWrap: true,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return ProverbItem(item: items[index],);
                 },
               ),
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
