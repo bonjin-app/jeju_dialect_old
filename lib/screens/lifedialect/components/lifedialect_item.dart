@@ -36,17 +36,17 @@ class LifeDialectItem extends StatelessWidget {
           ],
         ),
       ),
-//      trailing: Container(
-//        constraints: BoxConstraints(maxHeight: 60, maxWidth: 60),
-//        child: Stack(
-//          children: <Widget>[
-//            CircleAvatar(
-//              backgroundImage: NetworkImage("$baseUrl/${item.image1Url}"),
-//              maxRadius: 30,
-//            ),
-//          ],
-//        ),
-//      ),
+      trailing: Container(
+        constraints: BoxConstraints(maxHeight: 60, maxWidth: 60),
+        child: Stack(
+          children: <Widget>[
+            CircleAvatar(
+              backgroundImage: NetworkImage("$baseUrl/${item.image1Url}"),
+              maxRadius: 30,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

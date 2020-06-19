@@ -29,7 +29,13 @@ class ProverbProvider with ChangeNotifier {
     _logger.d("ProverbProvider requestProverbs");
 
     try {
-      final response = await http.get(proverbUrl);
+      var queryParam = {
+        "pageSize" : "20",
+      };
+      var uri = Uri.https(authority, proverbPath, queryParam);
+      final response = await http.get(uri);
+
+//      final response = await http.get(proverbUrl);
       if (response.statusCode == 200) {
 
         final body = response.body;

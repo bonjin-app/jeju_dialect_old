@@ -5,12 +5,12 @@ class Dictionary {
 
   Dictionary.fromJson(Map<String, dynamic> json) {
     jejunetApi = json['jejunetApi'] != null
-        ? JejunetApi.fromJson(json['jejunetApi'])
+        ? new JejunetApi.fromJson(json['jejunetApi'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.jejunetApi != null) {
       data['jejunetApi'] = this.jejunetApi.toJson();
     }
@@ -21,24 +21,24 @@ class Dictionary {
 class JejunetApi {
   String resultCode;
   String resultMsg;
-  Items items;
+  Items list;
   Query query;
 
-  JejunetApi({this.resultCode, this.resultMsg, this.items, this.query});
+  JejunetApi({this.resultCode, this.resultMsg, this.list, this.query});
 
   JejunetApi.fromJson(Map<String, dynamic> json) {
     resultCode = json['resultCode'];
     resultMsg = json['resultMsg'];
-    items = json['items'] != null ? Items.fromJson(json['items']) : null;
-    query = json['query'] != null ? Query.fromJson(json['query']) : null;
+    list = json['list'] != null ? new Items.fromJson(json['list']) : null;
+    query = json['query'] != null ? new Query.fromJson(json['query']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['resultCode'] = this.resultCode;
     data['resultMsg'] = this.resultMsg;
-    if (this.items != null) {
-      data['items'] = this.items.toJson();
+    if (this.list != null) {
+      data['list'] = this.list.toJson();
     }
     if (this.query != null) {
       data['query'] = this.query.toJson();
@@ -85,21 +85,20 @@ class Item {
   String use;
   String category;
 
-  Item({
-    this.seq,
-    this.type,
-    this.name,
-    this.siteName,
-    this.index,
-    this.contents,
-    this.engContents,
-    this.janContents,
-    this.chiContents,
-    this.sound,
-    this.soundUrl,
-    this.use,
-    this.category,
-  });
+  Item(
+      {this.seq,
+        this.type,
+        this.name,
+        this.siteName,
+        this.index,
+        this.contents,
+        this.engContents,
+        this.janContents,
+        this.chiContents,
+        this.sound,
+        this.soundUrl,
+        this.use,
+        this.category});
 
   Item.fromJson(Map<String, dynamic> json) {
     seq = json['seq'];
@@ -118,7 +117,7 @@ class Item {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['seq'] = this.seq;
     data['type'] = this.type;
     data['name'] = this.name;
@@ -150,7 +149,7 @@ class Query {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['pageSize'] = this.pageSize;
     data['page'] = this.page;
     data['rows'] = this.rows;

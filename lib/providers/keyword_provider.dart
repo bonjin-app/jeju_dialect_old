@@ -30,7 +30,13 @@ class KeywordProvider with ChangeNotifier {
     _logger.d("KeywordProvider requestKeywords");
 
     try {
-      final response = await http.get(proverbUrl);
+      var queryParam = {
+        "pageSize" : "20",
+      };
+      var uri = Uri.https(authority, keywordPath, queryParam);
+      final response = await http.get(uri);
+
+//      final response = await http.get(keywordUrl);
       if (response.statusCode == 200) {
 
         final body = response.body;

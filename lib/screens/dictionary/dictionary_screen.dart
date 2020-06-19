@@ -19,7 +19,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     dictionaryProvider = Provider.of<DictionaryProvider>(context, listen: false);
     dictionaryProvider.requestDictionaries().then((value) {
       setState(() {
-        items = dictionaryProvider.dictionary.jejunetApi.items.item;
+        items = dictionaryProvider.dictionary.jejunetApi.list.item;
       });
     });
   }
