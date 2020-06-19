@@ -31,7 +31,15 @@ class LifeDialectProvider with ChangeNotifier {
     _logger.d("LifeDialectProvider requestLifeDialects");
 
     try {
-      final response = await http.get(lifeDialectUrl);
+      var queryParam = {
+//        "type" : "LB05",
+//        "page" : "1",
+        "pageSize" : "20",
+      };
+      var uri = Uri.https(authority, lifeDialectPath, queryParam);
+      final response = await http.get(uri);
+
+//      final response = await http.get(lifeDialectUrl);
       if (response.statusCode == 200) {
 
         final body = response.body;

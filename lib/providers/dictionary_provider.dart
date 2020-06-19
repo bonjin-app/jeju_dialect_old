@@ -29,7 +29,13 @@ class DictionaryProvider with ChangeNotifier {
     _logger.d("DictionaryProvider requestDictionaries");
 
     try {
-      final response = await http.get(proverbUrl);
+      var queryParam = {
+        "pageSize" : "1",
+      };
+      var uri = Uri.https(authority, dictionaryPath, queryParam);
+      final response = await http.get(uri);
+
+//      final response = await http.get(dictionaryUrl);
       if (response.statusCode == 200) {
 
         final body = response.body;
@@ -37,6 +43,9 @@ class DictionaryProvider with ChangeNotifier {
         final jsonString = _parser.toParker();
         final json = convert.jsonDecode(jsonString);
         final dictionary = Dictionary.fromJson(json);
+
+        print("dictionary : ${dictionary}");
+
         setData(dictionary);
 
         return true;
