@@ -12,43 +12,33 @@ class SettingScreen extends StatelessWidget {
             color: Colors.black87,
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            icon: Icon(Icons.settings),
-          ),
-        ],
         backgroundColor: Color(0xffffc266),
       ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xffffc266),
-          image: DecorationImage(
-            alignment: Alignment.centerLeft,
-            image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
-          ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
+              height: 300,
               width: double.infinity,
-              margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-              padding: EdgeInsets.only(top: 8, right: 8, left: 8),
+              margin: EdgeInsets.only(left: 16, right: 16, top: 50),
+              padding: EdgeInsets.only(top: 16, right: 8, left: 8, bottom: 16),
               decoration: BoxDecoration(
-                color: Color(0xffeaeaea),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(13),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '   언어설정',
+                    '   앱정보',
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 24,
                         fontWeight: FontWeight.w500,
                         color: Colors.black87),
                   ),
@@ -56,86 +46,39 @@ class SettingScreen extends StatelessWidget {
                     height: 8,
                   ),
                   FlatButton.icon(
-                    label: Text('언어 설정'),
-                    icon: Icon(Icons.supervised_user_circle),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.black54,
-                    height: 1,
-                  ),
-                  FlatButton.icon(
-                    label: Text('버전 정보'),
-                    icon: Icon(Icons.info_outline),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.black54,
-                    height: 1,
-                  ),
-                  FlatButton.icon(
-                    label: Text('앱 정보'),
-                    icon: Icon(Icons.info_outline),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-              padding: EdgeInsets.only(top: 8, right: 8, left: 8),
-              decoration: BoxDecoration(
-                color: Color(0xffeaeaea),
-                borderRadius: BorderRadius.circular(13),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '   앱정보',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black87,
+                    label: Text(
+                      '언어',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  FlatButton.icon(
-                    label: Text('언어 설정'),
-                    icon: Icon(Icons.supervised_user_circle),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.black54,
-                    height: 1,
-                  ),
-                  FlatButton.icon(
-                    label: Text('버전 정보'),
-                    icon: Icon(Icons.info_outline),
+                    icon: Icon(
+                      Icons.supervised_user_circle,
+                      size: 32,
+                    ),
                     onPressed: () {
                       print('안녕칭구들');
                     },
                   ),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              margin:
-                  EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
-              padding: EdgeInsets.only(top: 8, right: 8, left: 8),
-              decoration: BoxDecoration(
-                color: Color(0xffeaeaea),
-                borderRadius: BorderRadius.circular(13),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    color: Colors.black54,
+                    height: 1,
+                  ),
                   FlatButton.icon(
-                    label: Text('언어 설정'),
-                    icon: Icon(Icons.supervised_user_circle),
+                    label: Text(
+                      '버전 정보',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    icon: Icon(
+                      Icons.info_outline,
+                      size: 32,
+                    ),
+                    onPressed: () {
+                      print('안녕칭구들');
+                    },
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 30),
@@ -143,8 +86,19 @@ class SettingScreen extends StatelessWidget {
                     height: 1,
                   ),
                   FlatButton.icon(
-                    label: Text('버전 정보'),
-                    icon: Icon(Icons.info_outline),
+                    label: Text(
+                      '앱 정보',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    icon: Icon(
+                      Icons.info_outline,
+                      size: 32,
+                    ),
+                    onPressed: () {
+                      print('안녕칭구들');
+                    },
                   ),
                 ],
               ),

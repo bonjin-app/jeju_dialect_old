@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jejudialect/models/life_dialect.dart';
+import 'package:jejudialect/providers/lifedialect_provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({
+
+  final Function onChanged;
+
+  SearchBar({
     Key key,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -16,6 +23,7 @@ class SearchBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(29.5),
       ),
       child: TextField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: "Search",
           icon: SvgPicture.asset("assets/icons/search.svg"),

@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jejudialect/models/proverb.dart';
-import 'package:jejudialect/screens/proverb/proverb_detail_screen.dart';
+import 'package:jejudialect/models/dictionary.dart';
 import 'package:jejudialect/widgets/custom_tile.dart';
 
-class ProverbItem extends StatelessWidget {
+class DictionaryItem extends StatelessWidget {
   final Item item;
 
-  const ProverbItem({Key key, this.item}) : super(key: key);
+  const DictionaryItem({Key key, this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class ProverbItem extends StatelessWidget {
     return CustomTile(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
-            builder: (context) => ProverbDetailScreen(item: item)
+//            builder: (context) => KeywordDetailScreen(item: item)
         ));
       },
       title: Text(

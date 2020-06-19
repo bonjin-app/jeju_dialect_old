@@ -12,6 +12,7 @@ class LifeDialectDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(item.name),
+        backgroundColor: Color(0xffffc266),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),

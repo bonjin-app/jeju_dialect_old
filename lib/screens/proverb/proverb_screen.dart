@@ -16,6 +16,7 @@ class _ProverbScreenState extends State<ProverbScreen>{
   ProverbProvider proverbProvider;
 
   List<Item> items = [];
+  String query;
 
   @override
   void initState() {
@@ -28,11 +29,37 @@ class _ProverbScreenState extends State<ProverbScreen>{
     });
   }
 
+  Widget filterSearchResults() {
+
+    var list = items.where((item) {
+      return (query == null || query == "") ?  true : item.name.contains(query);
+    }).toList();
+
+    return ListView.builder(
+      shrinkWrap: true,
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        return ProverbItem(item: list[index]);
+      },
+    );
+
+  }
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          '제주 속담',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: Colors.black54,
+          ),
+        ),
         elevation: 0,
         backgroundColor: Color(0xffffc266),
       ),
@@ -41,38 +68,25 @@ class _ProverbScreenState extends State<ProverbScreen>{
           Container(
             decoration: BoxDecoration(
               color: Color(0xffffc266),
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(20), bottomLeft: Radius.circular(20)
+              ),
             ),
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(16),
-                  width: double.infinity,
-                  child: Text(
-                    '제주 속담',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black54),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: SearchBar(),
-                ),
-              ],
+            child: Container(
+              padding: EdgeInsets.only(left: 16, right: 16, bottom: 32),
+                child: SearchBar(onChanged: (value) {
+
+                  setState(() {
+                    query = value;
+                  });
+
+                },),
             ),
           ),
           Expanded(
             flex: 1,
             child: Container(
-              child: ListView.builder(
-                padding: EdgeInsets.all(16),
-                shrinkWrap: true,
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return ProverbItem(item: items[index],);
-                },
-              ),
+              child: filterSearchResults(),
             ),
           ),
         ],

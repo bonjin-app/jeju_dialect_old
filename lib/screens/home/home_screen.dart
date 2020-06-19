@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                   press: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      CupertinoPageRoute(
                           builder: (context) => LifeDialectScreen()),
                     );
                   },
@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                   press: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      CupertinoPageRoute(
                           builder: (context) => ProverbScreen()),
                     );
                   },
@@ -92,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                   press: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      CupertinoPageRoute(
                           builder: (context) => DictionaryScreen()),
                     );
                   },
@@ -103,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                   press: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      CupertinoPageRoute(
                           builder: (context) => KeywordScreen()),
                     );
                   },
