@@ -34,14 +34,37 @@ class _KeywordScreenState extends State<KeywordScreen> {
       return (query == null || query == "") ?  true : item.name.contains(query);
     }).toList();
 
-    return ListView.builder(
-      shrinkWrap: true,
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      itemCount: list.length,
-      itemBuilder: (context, index) {
-        return KeywordItem(item: list[index]);
-      },
-    );
+    if(list.length == 0 || list.length == null) {
+      return Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '조회된 정보가 없습니다',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black38
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }else {
+      return ListView.builder(
+        shrinkWrap: true,
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          return KeywordItem(item: list[index]);
+        },
+      );
+    }
 
   }
 
@@ -49,6 +72,8 @@ class _KeywordScreenState extends State<KeywordScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -56,7 +81,7 @@ class _KeywordScreenState extends State<KeywordScreen> {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
-            color: Colors.black54,
+              color: Colors.black54
           ),
         ),
         elevation: 0,

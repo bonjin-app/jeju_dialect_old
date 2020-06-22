@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class VersionInfoScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
