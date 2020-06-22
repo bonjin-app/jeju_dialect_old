@@ -13,7 +13,6 @@ class DictionaryProvider with ChangeNotifier {
   Dictionary _dictionary;
   Dictionary get dictionary => _dictionary;
 
-  //
   DictionaryProvider() {
     _logger.d("DictionaryProvider init");
   }
@@ -30,7 +29,7 @@ class DictionaryProvider with ChangeNotifier {
 
     try {
       var queryParam = {
-        "pageSize" : "999999999",
+        "pageSize" : "999",
       };
       var uri = Uri.https(authority, dictionaryPath, queryParam);
       final response = await http.get(uri);

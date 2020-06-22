@@ -34,28 +34,28 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
       return (query == null || query == "") ?  true : item.name.contains(query);
     }).toList();
 
-//    if(list.length == 0 || list.length == null) {
-//      return Container(
-//        child: Column(
-//          mainAxisAlignment: MainAxisAlignment.center,
-//          children: [
-//            Row(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              children: [
-//                Text(
-//                  '조회된 정보가 없습니다',
-//                  style: TextStyle(
-//                      fontSize: 20,
-//                      fontWeight: FontWeight.w600,
-//                      color: Colors.black38
-//                  ),
-//                ),
-//              ],
-//            ),
-//          ],
-//        ),
-//      );
-//    }else {
+    if(list.length == 0 || list.length == null) {
+      return Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '조회된 정보가 없습니다',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black38
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }else {
       return ListView.builder(
         shrinkWrap: true,
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -64,7 +64,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
           return DictionaryItem(item: list[index]);
         },
       );
-//    }
+    }
 
   }
 

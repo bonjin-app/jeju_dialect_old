@@ -27,16 +27,16 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(left: 20),
                 child: Text(
                   '제줏 말싸미',
-//                  style: TextStyle(
-//                    fontFamily: 'NanumMyeongjo',
-//                    fontSize: 35,
-//                    fontWeight: FontWeight.w900,
-//                    color: Colors.black54
-//                  ),
-                  style: Theme.of(context)
-                      .textTheme
-                      .display1
-                      .copyWith(fontWeight: FontWeight.w900),
+                  style: TextStyle(
+                    fontFamily: 'Yethan',
+                    fontSize: 35,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black54
+                  ),
+//                  style: Theme.of(context)
+//                      .textTheme
+//                      .display1
+//                      .copyWith(fontWeight: FontWeight.w900),
                 ),
               ),
               Container(

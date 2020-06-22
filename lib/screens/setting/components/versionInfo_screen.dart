@@ -7,7 +7,7 @@ class VersionInfoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '언어 설정',
+          '버전 정보',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -18,23 +18,57 @@ class VersionInfoScreen extends StatelessWidget {
         backgroundColor: Color(0xffffc266),
       ),
       backgroundColor: Color(0xffffc266),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '준비중입니다',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black54
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(13),
+        ),
+        margin: EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  '버전: ',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black54
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Text(
+                  '1.1.0+1',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black54
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  '업데이트 일자: ',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black54
+                  ),
+                ),
+                Text(
+                  '2020.06.22',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black54
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

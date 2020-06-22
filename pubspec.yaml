@@ -55,6 +55,12 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+    - family: Yethan
+      fonts:
+        - asset: fonts/NanumMyeongjo-YetHangul.ttf
+          weight: 600
+          style: italic
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -77,11 +83,7 @@ flutter:
     # "family" key with the font family name, and a "fonts" key with a
     # list giving the asset and other descriptors for the font. For
     # example:
-fonts:
-  - family: NanumMyeongjo
-    fonts:
-      - asset: fonts/NanumMyeongjo-YetHangul.ttf
-        style: italic
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
