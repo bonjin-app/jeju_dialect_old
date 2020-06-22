@@ -30,7 +30,7 @@ class DictionaryProvider with ChangeNotifier {
 
     try {
       var queryParam = {
-        "pageSize" : "10",
+        "pageSize" : "999999999",
       };
       var uri = Uri.https(authority, dictionaryPath, queryParam);
       final response = await http.get(uri);
@@ -43,9 +43,6 @@ class DictionaryProvider with ChangeNotifier {
         final jsonString = _parser.toParker();
         final json = convert.jsonDecode(jsonString);
         final dictionary = Dictionary.fromJson(json);
-
-        print("dictionary : ${dictionary}");
-
         setData(dictionary);
 
         return true;
