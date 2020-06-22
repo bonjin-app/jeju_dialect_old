@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jejudialect/screens/setting/components/language_setting.dart';
+
+import 'components/versionInfo_screen.dart';
 
 class SettingScreen extends StatelessWidget {
   @override
@@ -57,7 +60,9 @@ class SettingScreen extends StatelessWidget {
                       size: 32,
                     ),
                     onPressed: () {
-                      print('안녕칭구들');
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => LanguageSetting()
+                      ));
                     },
                   ),
                   Container(
@@ -77,7 +82,9 @@ class SettingScreen extends StatelessWidget {
                       size: 32,
                     ),
                     onPressed: () {
-                      print('안녕칭구들');
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => VersionInfoScreen()
+                      ));
                     },
                   ),
                   Container(
