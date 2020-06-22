@@ -21,15 +21,15 @@ class Dictionary {
 class JejunetApi {
   String resultCode;
   String resultMsg;
-  Items list;
+  Items items;
   Query query;
 
-  JejunetApi({this.resultCode, this.resultMsg, this.list, this.query});
+  JejunetApi({this.resultCode, this.resultMsg, this.items, this.query});
 
   JejunetApi.fromJson(Map<String, dynamic> json) {
     resultCode = json['resultCode'];
     resultMsg = json['resultMsg'];
-    list = json['list'] != null ? new Items.fromJson(json['list']) : null;
+    items = json['list'] != null ? new Items.fromJson(json['list']) : null;
     query = json['query'] != null ? new Query.fromJson(json['query']) : null;
   }
 
@@ -37,8 +37,8 @@ class JejunetApi {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['resultCode'] = this.resultCode;
     data['resultMsg'] = this.resultMsg;
-    if (this.list != null) {
-      data['list'] = this.list.toJson();
+    if (this.items != null) {
+      data['items'] = this.items.toJson();
     }
     if (this.query != null) {
       data['query'] = this.query.toJson();
