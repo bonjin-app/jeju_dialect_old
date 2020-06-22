@@ -48,15 +48,15 @@ class JejunetApi {
 }
 
 class Items {
-  List<Item> item;
+  List<Pitem> item;
 
   Items({this.item});
 
   Items.fromJson(Map<String, dynamic> json) {
     if (json['item'] != null) {
-      item = List<Item>();
+      item = List<Pitem>();
       json['item'].forEach((v) {
-        item.add(Item.fromJson(v));
+        item.add(Pitem.fromJson(v));
       });
     }
   }
@@ -70,7 +70,7 @@ class Items {
   }
 }
 
-class Item {
+class Pitem {
   String seq;
   String name;
   String index;
@@ -82,7 +82,7 @@ class Item {
   String soundUrl;
   String book;
 
-  Item({
+  Pitem({
     this.seq,
     this.name,
     this.index,
@@ -95,7 +95,7 @@ class Item {
     this.book,
   });
 
-  Item.fromJson(Map<String, dynamic> json) {
+  Pitem.fromJson(Map<String, dynamic> json) {
     seq = json['seq'];
     name = json['name'];
     index = json['index'];

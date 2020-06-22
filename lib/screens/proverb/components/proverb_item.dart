@@ -5,7 +5,7 @@ import 'package:jejudialect/screens/proverb/proverb_detail_screen.dart';
 import 'package:jejudialect/widgets/custom_tile.dart';
 
 class ProverbItem extends StatelessWidget {
-  final Item item;
+  final Pitem item;
 
   const ProverbItem({Key key, this.item}) : super(key: key);
 

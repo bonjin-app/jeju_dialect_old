@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jejudialect/models/proverb.dart';
 
 class ProverbDetailScreen extends StatelessWidget {
-  final Item item;
+  final Pitem item;
 
   const ProverbDetailScreen({Key key, this.item}) : super(key: key);
 

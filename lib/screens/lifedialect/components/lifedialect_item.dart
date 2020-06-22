@@ -5,7 +5,7 @@ import 'package:jejudialect/screens/lifedialect/lifedialect_detail_screen.dart';
 import 'package:jejudialect/widgets/custom_tile.dart';
 
 class LifeDialectItem extends StatelessWidget {
-  final Item item;
+  final Litem item;
 
   const LifeDialectItem({Key key, this.item}) : super(key: key);
 

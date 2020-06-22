@@ -14,7 +14,7 @@ class DictionaryScreen extends StatefulWidget {
 class _DictionaryScreenState extends State<DictionaryScreen> {
   DictionaryProvider dictionaryProvider;
 
-  List<Item> items = [];
+  List<Ditem> items = [];
   String query;
 
   @override
@@ -78,7 +78,6 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
                 setState(() {
                   query = value;
                 });
-
               },),
             ),
           ),

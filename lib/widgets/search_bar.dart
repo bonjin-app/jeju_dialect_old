@@ -25,7 +25,7 @@ class SearchBar extends StatelessWidget {
       child: TextField(
         onChanged: onChanged,
         decoration: InputDecoration(
-          hintText: "Search",
+          hintText: "검색어를 입력하세요",
           icon: SvgPicture.asset("assets/icons/search.svg"),
           border: InputBorder.none,
         ),

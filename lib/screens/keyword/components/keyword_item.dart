@@ -6,7 +6,7 @@ import 'package:jejudialect/widgets/custom_tile.dart';
 import '../keyword_detail_screen.dart';
 
 class KeywordItem extends StatelessWidget {
-  final Item item;
+  final Kitem item;
 
   const KeywordItem({Key key, this.item}) : super(key: key);
 

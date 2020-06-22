@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
         color: Color(0xffffc266),
       ),
       child: Column(
+
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Stack(

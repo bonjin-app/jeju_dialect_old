@@ -1,8 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jejudialect/models/dictionary.dart';
+import 'package:jejudialect/models/keyword.dart';
 import 'package:jejudialect/models/life_dialect.dart';
+import 'package:jejudialect/models/proverb.dart';
+import 'package:jejudialect/providers/dictionary_provider.dart';
+import 'package:jejudialect/providers/keyword_provider.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
+import 'package:jejudialect/providers/proverb_provider.dart';
 import 'package:jejudialect/screens/lifedialect/components/lifedialect_item.dart';
+import 'package:jejudialect/screens/search/components/search_item.dart';
 import 'package:jejudialect/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -13,8 +20,18 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin {
-  LifeDialectProvider lifeDialectProvider;
 
+  String query;
+
+  LifeDialectProvider lifeDialectProvider;
+  ProverbProvider proverbProvider;
+  KeywordProvider keywordProvider;
+  DictionaryProvider dictionaryProvider;
+
+  List<Litem> Litems = [];
+  List<Ditem> Ditems = [];
+  List<Kitem> Kitems = [];
+  List<Pitem> Pitems = [];
   List<Item> items = [];
 
   @override
@@ -24,9 +41,50 @@ class _FavoriteScreenState extends State<FavoriteScreen>
         Provider.of<LifeDialectProvider>(context, listen: false);
     lifeDialectProvider.requestLifeDialects().then((value) {
       setState(() {
-        items = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
+        Litems = lifeDialectProvider.lifeDialect.jejunetApi.items.item;
       });
     });
+
+    proverbProvider =
+        Provider.of<ProverbProvider>(context, listen: false);
+    proverbProvider.requestProverbs().then((value) {
+      setState(() {
+        Pitems = proverbProvider.proverb.jejunetApi.items.item;
+      });
+    });
+
+    dictionaryProvider =
+        Provider.of<DictionaryProvider>(context, listen: false);
+    dictionaryProvider.requestDictionaries().then((value) {
+      setState(() {
+        Ditems = dictionaryProvider.dictionary.jejunetApi.list.item;
+      });
+    });
+
+    keywordProvider = Provider.of<KeywordProvider>(context, listen: false);
+    keywordProvider.requestKeywords().then((value) {
+      setState(() {
+        Kitems = keywordProvider.keyword.jejunetApi.items.item;
+      });
+    });
+
+  }
+
+  Widget filterSearchResults() {
+
+    var list = items.where((item) {
+      return (query == null || query == "") ?  true : item.name.contains(query);
+    }).toList();
+
+    return ListView.builder(
+      shrinkWrap: true,
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        return SearchItem(item: list[index]);
+      },
+    );
+
   }
 
   @override
@@ -60,21 +118,19 @@ class _FavoriteScreenState extends State<FavoriteScreen>
               Container(
                 margin: EdgeInsets.only(top: 100),
                 padding: EdgeInsets.all(16),
-                child: SearchBar(),
+                child: SearchBar(onChanged: (value) {
+
+                  setState(() {
+                    query = value;
+                  });
+                },),
               ),
             ],
           ),
           Expanded(
             flex: 1,
             child: Container(
-              child: ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return LifeDialectItem(item: items[index]);
-                },
-              ),
+              child: filterSearchResults(),
             ),
           ),
         ],
@@ -84,4 +140,69 @@ class _FavoriteScreenState extends State<FavoriteScreen>
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class Item {
+  String seq;
+  String type;
+  String name;
+  String siteName;
+  String index;
+  String contents;
+  String engContents;
+  String janContents;
+  String chiContents;
+  String sound;
+  String soundUrl;
+  String use;
+  String category;
+
+  Item(
+      {this.seq,
+        this.type,
+        this.name,
+        this.siteName,
+        this.index,
+        this.contents,
+        this.engContents,
+        this.janContents,
+        this.chiContents,
+        this.sound,
+        this.soundUrl,
+        this.use,
+        this.category});
+
+  Item.fromJson(Map<String, dynamic> json) {
+    seq = json['seq'];
+    type = json['type'];
+    name = json['name'];
+    siteName = json['siteName'];
+    index = json['index'];
+    contents = json['contents'];
+    engContents = json['engContents'];
+    janContents = json['janContents'];
+    chiContents = json['chiContents'];
+    sound = json['sound'];
+    soundUrl = json['soundUrl'];
+    use = json['use'];
+    category = json['category'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['seq'] = this.seq;
+    data['type'] = this.type;
+    data['name'] = this.name;
+    data['siteName'] = this.siteName;
+    data['index'] = this.index;
+    data['contents'] = this.contents;
+    data['engContents'] = this.engContents;
+    data['janContents'] = this.janContents;
+    data['chiContents'] = this.chiContents;
+    data['sound'] = this.sound;
+    data['soundUrl'] = this.soundUrl;
+    data['use'] = this.use;
+    data['category'] = this.category;
+    return data;
+  }
 }

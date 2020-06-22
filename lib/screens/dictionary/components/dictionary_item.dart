@@ -4,7 +4,7 @@ import 'package:jejudialect/models/dictionary.dart';
 import 'package:jejudialect/widgets/custom_tile.dart';
 
 class DictionaryItem extends StatelessWidget {
-  final Item item;
+  final Ditem item;
 
   const DictionaryItem({Key key, this.item}) : super(key: key);
 

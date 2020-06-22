@@ -48,15 +48,15 @@ class JejunetApi {
 }
 
 class Items {
-  List<Item> item;
+  List<Litem> item;
 
   Items({this.item});
 
   Items.fromJson(Map<String, dynamic> json) {
     if (json['item'] != null) {
-      item = List<Item>();
+      item = List<Litem>();
       json['item'].forEach((v) {
-        item.add(Item.fromJson(v));
+        item.add(Litem.fromJson(v));
       });
     }
   }
@@ -70,7 +70,7 @@ class Items {
   }
 }
 
-class Item {
+class Litem {
   String seq;
   String type;
   String name;
@@ -83,7 +83,7 @@ class Item {
   String category;
   String count;
 
-  Item({
+  Litem({
     this.seq,
         this.type,
         this.name,
@@ -97,7 +97,7 @@ class Item {
         this.count,
       });
 
-  Item.fromJson(Map<String, dynamic> json) {
+  Litem.fromJson(Map<String, dynamic> json) {
     seq = json['seq'];
     type = json['type'];
     name = json['name'];

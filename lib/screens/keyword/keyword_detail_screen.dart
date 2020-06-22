@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jejudialect/models/keyword.dart';
 
 class KeywordDetailScreen extends StatelessWidget {
-  final Item item;
+  final Kitem item;
 
   const KeywordDetailScreen({Key key, this.item}) : super(key: key);
 

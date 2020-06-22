@@ -15,7 +15,7 @@ class _ProverbScreenState extends State<ProverbScreen>{
 
   ProverbProvider proverbProvider;
 
-  List<Item> items = [];
+  List<Pitem> items = [];
   String query;
 
   @override

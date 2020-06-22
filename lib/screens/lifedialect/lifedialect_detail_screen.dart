@@ -3,7 +3,7 @@ import 'package:jejudialect/constants/strings.dart';
 import 'package:jejudialect/models/life_dialect.dart';
 
 class LifeDialectDetailScreen extends StatelessWidget {
-  final Item item;
+  final Litem item;
 
   const LifeDialectDetailScreen({Key key, this.item}) : super(key: key);
 

@@ -19,6 +19,9 @@ class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //키패드 공간 차지 무시
+      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomPadding: false,
       body: PageView(
         physics: NeverScrollableScrollPhysics(), //pageView disable swipe
         controller: _pageController,

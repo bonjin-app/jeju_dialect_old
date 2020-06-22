@@ -13,7 +13,7 @@ class KeywordScreen extends StatefulWidget {
 class _KeywordScreenState extends State<KeywordScreen> {
   KeywordProvider keywordProvider;
 
-  List<Item> items = [];
+  List<Kitem> items = [];
   String query;
 
   @override

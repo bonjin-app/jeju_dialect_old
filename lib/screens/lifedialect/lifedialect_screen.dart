@@ -14,8 +14,8 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
 
   LifeDialectProvider lifeDialectProvider;
 
-  List<Item> items = [];
-  List<Item> itemCopy = [];
+  List<Litem> items = [];
+  List<Litem> itemCopy = [];
   String query;
 
   @override
