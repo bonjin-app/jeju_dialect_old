@@ -34,7 +34,7 @@ class LifeDialectProvider with ChangeNotifier {
       var queryParam = {
 //        "type" : "LB05",
 //        "page" : "1",
-        "pageSize" : "20",
+        "pageSize" : "999999999",
       };
       var uri = Uri.https(authority, lifeDialectPath, queryParam);
       final response = await http.get(uri);

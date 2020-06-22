@@ -30,7 +30,7 @@ class ProverbProvider with ChangeNotifier {
 
     try {
       var queryParam = {
-        "pageSize" : "20",
+        "pageSize" : "999999999",
       };
       var uri = Uri.https(authority, proverbPath, queryParam);
       final response = await http.get(uri);
