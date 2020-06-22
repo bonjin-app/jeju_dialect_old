@@ -29,19 +29,23 @@ class DictionaryProvider with ChangeNotifier {
     _logger.d("DictionaryProvider requestDictionaries");
 
     try {
+
       var queryParam = {
-        "pageSize" : "999999999",
+        "pageSize" : "999",
       };
       var uri = Uri.https(authority, dictionaryPath, queryParam);
       final response = await http.get(uri);
 
 //      final response = await http.get(dictionaryUrl);
       if (response.statusCode == 200) {
-
         final body = response.body;
         final Xml2Json _parser = Xml2Json()..parse(body);
         final jsonString = _parser.toParker();
-        final json = convert.jsonDecode(jsonString);
+        var newString = jsonString.replaceAllMapped(RegExp(r'&#[0-9]*;'), (Match m) {
+          var value = m[0].replaceAll(RegExp(r'\D'), '');
+          return String.fromCharCode(int.parse(value));
+        });
+        final json = convert.jsonDecode(newString);
         final dictionary = Dictionary.fromJson(json);
         setData(dictionary);
 
