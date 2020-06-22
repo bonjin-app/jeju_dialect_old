@@ -30,7 +30,7 @@ class DictionaryProvider with ChangeNotifier {
 
     try {
       var queryParam = {
-        "pageSize" : "1",
+        "pageSize" : "10",
       };
       var uri = Uri.https(authority, dictionaryPath, queryParam);
       final response = await http.get(uri);

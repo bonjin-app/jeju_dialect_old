@@ -57,7 +57,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
         Provider.of<DictionaryProvider>(context, listen: false);
     dictionaryProvider.requestDictionaries().then((value) {
       setState(() {
-        Ditems = dictionaryProvider.dictionary.jejunetApi.list.item;
+        Ditems = dictionaryProvider.dictionary.jejunetApi.items.item;
       });
     });
 

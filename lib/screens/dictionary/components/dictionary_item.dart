@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jejudialect/models/dictionary.dart';
+import 'package:jejudialect/screens/dictionary/dictionary_detail_screen.dart';
 import 'package:jejudialect/widgets/custom_tile.dart';
 
 class DictionaryItem extends StatelessWidget {
@@ -14,7 +15,7 @@ class DictionaryItem extends StatelessWidget {
     return CustomTile(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
-//            builder: (context) => KeywordDetailScreen(item: item)
+            builder: (context) => DictionaryDetailScreen(item: item)
         ));
       },
       title: Text(
