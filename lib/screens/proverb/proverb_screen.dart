@@ -41,7 +41,7 @@ class _ProverbScreenState extends State<ProverbScreen>{
       return (query == null || query == "") ?  true : item.name.contains(query);
     }).toList();
 
-    if (netWorkSuccess == true) {
+    if (netWorkSuccess) {
       if (list.length == 0 || list.length == null) {
         return Container(
           child: Column(
@@ -77,6 +77,10 @@ class _ProverbScreenState extends State<ProverbScreen>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            CircularProgressIndicator(),
+            SizedBox(
+              height: 16,
+            ),
             Text(
               '조회중입니다',
               style: TextStyle(

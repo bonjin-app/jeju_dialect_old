@@ -31,7 +31,7 @@ class NotationScreen extends StatelessWidget {
                 },
               );
             }
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           },
         ),
       ),
