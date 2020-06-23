@@ -9,6 +9,7 @@ import 'package:jejudialect/constants/strings.dart';
 
 class ProverbProvider with ChangeNotifier {
   final Logger _logger = Logger();
+  var netWorkSuccess = false;
 
   Proverb _proverb;
   Proverb get proverb => _proverb;
@@ -27,6 +28,7 @@ class ProverbProvider with ChangeNotifier {
 
   Future<bool> requestProverbs() async {
     _logger.d("ProverbProvider requestProverbs");
+    netWorkSuccess = false;
 
     try {
       var queryParam = {
@@ -37,13 +39,19 @@ class ProverbProvider with ChangeNotifier {
 
 //      final response = await http.get(proverbUrl);
       if (response.statusCode == 200) {
-
         final body = response.body;
         final Xml2Json _parser = Xml2Json()..parse(body);
         final jsonString = _parser.toParker();
-        final json = convert.jsonDecode(jsonString);
+        var newString = jsonString.replaceAllMapped(RegExp(r'\&#[0-9]*;'), (Match m) {
+          var value = m[0].replaceAll(RegExp(r'\D'), '');
+
+          return String.fromCharCode(int.parse(value));
+        });
+        final json = convert.jsonDecode(newString);
         final proverb = Proverb.fromJson(json);
         setData(proverb);
+
+        netWorkSuccess = true;
 
         return true;
       }

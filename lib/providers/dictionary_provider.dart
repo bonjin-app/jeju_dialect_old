@@ -9,6 +9,7 @@ import 'package:jejudialect/constants/strings.dart';
 
 class DictionaryProvider with ChangeNotifier {
   final Logger _logger = Logger();
+  var netWorkSuccess = false;
 
   Dictionary _dictionary;
   Dictionary get dictionary => _dictionary;
@@ -26,7 +27,7 @@ class DictionaryProvider with ChangeNotifier {
 
   Future<bool> requestDictionaries() async {
     _logger.d("DictionaryProvider requestDictionaries");
-
+    netWorkSuccess = false;
     try {
 
       var queryParam = {
@@ -34,12 +35,12 @@ class DictionaryProvider with ChangeNotifier {
       };
       var uri = Uri.https(authority, dictionaryPath, queryParam);
       final response = await http.get(uri);
-
 //      final response = await http.get(dictionaryUrl);
+
       if (response.statusCode == 200) {
         final body = response.body;
         final Xml2Json _parser = Xml2Json()..parse(body);
-        final jsonString = _parser.toParker();
+        final jsonString = _parser.toParker().replaceAll('\\', '');
         var newString = jsonString.replaceAllMapped(RegExp(r'&#[0-9]*;'), (Match m) {
           var value = m[0].replaceAll(RegExp(r'\D'), '');
           return String.fromCharCode(int.parse(value));
@@ -47,6 +48,8 @@ class DictionaryProvider with ChangeNotifier {
         final json = convert.jsonDecode(newString);
         final dictionary = Dictionary.fromJson(json);
         setData(dictionary);
+
+        netWorkSuccess = true;
 
         return true;
       }

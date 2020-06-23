@@ -8,9 +8,13 @@ class KeywordDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String name = item.name.replaceAll('n', ' ');
     return Scaffold(
       appBar: AppBar(
-        title: Text(item.name),
+        title: Text(
+          name.replaceAll('n', ''),
+          style: TextStyle(color: Colors.black54),
+        ),
         backgroundColor: Color(0xffffc266),
       ),
       body: SingleChildScrollView(
@@ -37,7 +41,7 @@ class KeywordDetailScreen extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      item.contents,
+                      item.contents.replaceAll('n', ' ').replaceAll('\\', ''),
                       style: TextStyle(fontSize: 18, color: Colors.grey),
                     ),
                     Container(
@@ -79,15 +83,18 @@ class KeywordDetailScreen extends StatelessWidget {
                           children: [
                             Text(
                               item.writer,
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
                             ),
                             Text(
                               '  p.',
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
                             ),
                             Text(
                               item.page,
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
                             ),
                           ],
                         ),
@@ -108,7 +115,7 @@ class KeywordDetailScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          item.index1,
+                          item.index1.replaceAll('n', ' ').replaceAll('\\', ''),
                           style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                         Text(
@@ -116,7 +123,7 @@ class KeywordDetailScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                         Text(
-                          item.index2,
+                          item.index2.replaceAll('n', ' ').replaceAll('\\', ''),
                           style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                         Text(
@@ -124,7 +131,7 @@ class KeywordDetailScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                         Text(
-                          item.index3,
+                          item.index3.replaceAll('n', ' ').replaceAll('\\', ''),
                           style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                       ],

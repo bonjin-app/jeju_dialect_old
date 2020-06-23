@@ -72,6 +72,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
 
   Widget filterSearchResults() {
 
+
     var list = items.where((item) {
       return (query == null || query == "") ? true : item.name.contains(query);
     }).toList();

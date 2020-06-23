@@ -59,9 +59,9 @@ class _TabScreenState extends State<TabScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.search,
+              Icons.border_color,
             ),
-            title: Text("검색"),
+            title: Text("표기법"),
           ),
           BottomNavigationBarItem(
             icon: Icon(

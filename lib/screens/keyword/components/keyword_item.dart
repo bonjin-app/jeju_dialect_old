@@ -12,6 +12,7 @@ class KeywordItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String name = item.name.replaceAll('n', ' ');
 
     return CustomTile(
       onTap: () {
@@ -20,7 +21,7 @@ class KeywordItem extends StatelessWidget {
         ));
       },
       title: Text(
-        item.name,
+        name.replaceAll('\\', ''),
         style: TextStyle(
           fontSize: 16,
         ),

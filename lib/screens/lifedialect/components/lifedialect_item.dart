@@ -19,12 +19,16 @@ class LifeDialectItem extends StatelessWidget {
         ));
       },
       title: Text(
-        item.siteName,
+        item.siteName.replaceAll('n', ' ').replaceAll('\\', ''),
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 18,
         ),
       ),
-      subtitle: Text(item.name,),
+      subtitle: Text(
+        item.name.replaceAll('n', ' ').replaceAll('\\', ''),
+        style: TextStyle(
+          fontSize: 12
+        ),),
       leading: Container(
         constraints: BoxConstraints(maxHeight: 60, maxWidth: 60),
         child: Stack(

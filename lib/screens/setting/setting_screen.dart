@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:jejudialect/screens/setting/components/appInfo_screen.dart';
 import 'package:jejudialect/screens/setting/components/language_setting.dart';
+import 'package:jejudialect/screens/setting/components/setting_item.dart';
 
 import 'components/versionInfo_screen.dart';
 
 class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
@@ -29,7 +31,6 @@ class SettingScreen extends StatelessWidget {
 //          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              height: 300,
               width: double.infinity,
               margin: EdgeInsets.only(left: 16, right: 16, top: 50),
               padding: EdgeInsets.only(top: 16, right: 8, left: 8, bottom: 16),
@@ -49,64 +50,30 @@ class SettingScreen extends StatelessWidget {
                         color: Colors.black87),
                   ),
                   SizedBox(
-                    height: 8,
+                    height: 16,
                   ),
-                  FlatButton.icon(
-                    label: Text(
-                      '언어',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    icon: Icon(
-                      Icons.supervised_user_circle,
-                      size: 32,
-                    ),
-                    onPressed: () {
+                  SettingItem(
+                    icon: Icons.language,
+                    text: '언어',
+                    onTab: (){
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => LanguageSetting()
                       ));
                     },
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.black54,
-                    height: 1,
-                  ),
-                  FlatButton.icon(
-                    label: Text(
-                      '버전 정보',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    icon: Icon(
-                      Icons.info_outline,
-                      size: 32,
-                    ),
-                    onPressed: () {
+                  SettingItem(
+                    icon: Icons.info_outline,
+                    text: '버전정보',
+                    onTab: (){
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => VersionInfoScreen()
                       ));
                     },
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.black54,
-                    height: 1,
-                  ),
-                  FlatButton.icon(
-                    label: Text(
-                      '앱 정보',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    icon: Icon(
-                      Icons.info_outline,
-                      size: 32,
-                    ),
-                    onPressed: () {
+                  SettingItem(
+                    icon: Icons.perm_device_information,
+                    text: '앱 정보',
+                    onTab: (){
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => AppInfoScreen()
                       ));

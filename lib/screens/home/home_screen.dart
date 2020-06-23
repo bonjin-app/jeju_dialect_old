@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jejudialect/providers/dictionary_provider.dart';
 import 'package:jejudialect/screens/dictionary/dictionary_screen.dart';
 import 'package:jejudialect/screens/keyword/keyword_screen.dart';
 import 'package:jejudialect/screens/lifedialect/lifedialect_screen.dart';
@@ -8,6 +9,9 @@ import 'package:jejudialect/widgets/category_card.dart';
 import 'package:jejudialect/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  DictionaryProvider dictionaryProvider;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,10 +37,6 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.w900,
                     color: Colors.black54
                   ),
-//                  style: Theme.of(context)
-//                      .textTheme
-//                      .display1
-//                      .copyWith(fontWeight: FontWeight.w900),
                 ),
               ),
               Container(

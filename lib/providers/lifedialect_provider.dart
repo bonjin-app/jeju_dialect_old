@@ -9,6 +9,7 @@ import 'package:jejudialect/constants/strings.dart';
 
 class LifeDialectProvider with ChangeNotifier {
   final Logger _logger = Logger();
+  var netWorkSuccess = false;
 
   LifeDialect _lifeDialect;
   LifeDialect get lifeDialect => _lifeDialect;
@@ -29,6 +30,7 @@ class LifeDialectProvider with ChangeNotifier {
   // 제주 생활방언 정보 전체조회
   Future<bool> requestLifeDialects() async {
     _logger.d("LifeDialectProvider requestLifeDialects");
+    netWorkSuccess = false;
 
     try {
       var queryParam = {
@@ -44,10 +46,17 @@ class LifeDialectProvider with ChangeNotifier {
 
         final body = response.body;
         final Xml2Json _parser = Xml2Json()..parse(body);
-        final jsonString = _parser.toParker();
-        final json = convert.jsonDecode(jsonString);
+        final jsonString = _parser.toParker().replaceAll('\\', '');
+        var newString = jsonString.replaceAllMapped(RegExp(r'\&#[0-9]*;'), (Match m) {
+          var value = m[0].replaceAll(RegExp(r'\D'), '');
+
+          return String.fromCharCode(int.parse(value));
+        });
+        final json = convert.jsonDecode(newString);
         final lifeDialect = LifeDialect.fromJson(json);
         setData(lifeDialect);
+
+        netWorkSuccess = true;
 
         return true;
       }

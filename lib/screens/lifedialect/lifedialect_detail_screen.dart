@@ -11,7 +11,12 @@ class LifeDialectDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(item.name),
+        title: Text(
+          item.name.replaceAll('n', ' '),
+          style: TextStyle(
+              color: Colors.black54
+          ),
+        ),
         backgroundColor: Color(0xffffc266),
       ),
       body: SingleChildScrollView(
@@ -62,7 +67,7 @@ class LifeDialectDetailScreen extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      item.contents,
+                      item.contents.replaceAll('n', ' '),
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey
@@ -80,8 +85,9 @@ class LifeDialectDetailScreen extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      item.original,
+                      item.original.replaceAll('n', ' '),
                       style: TextStyle(
+                          fontFamily: 'Yethan',
                           fontSize: 18,
                           color: Colors.grey
                       ),
@@ -98,7 +104,7 @@ class LifeDialectDetailScreen extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      item.solution,
+                      item.solution.replaceAll('n', ' '),
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey

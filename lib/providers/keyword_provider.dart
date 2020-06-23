@@ -10,6 +10,7 @@ import 'package:jejudialect/constants/strings.dart';
 
 class KeywordProvider with ChangeNotifier {
   final Logger _logger = Logger();
+  var netWorkSuccess = false;
 
   Keyword _keyword;
   Keyword get keyword => _keyword;
@@ -28,6 +29,7 @@ class KeywordProvider with ChangeNotifier {
 
   Future<bool> requestKeywords() async {
     _logger.d("KeywordProvider requestKeywords");
+    netWorkSuccess = false;
 
     try {
       var queryParam = {
@@ -42,9 +44,16 @@ class KeywordProvider with ChangeNotifier {
         final body = response.body;
         final Xml2Json _parser = Xml2Json()..parse(body);
         final jsonString = _parser.toParker();
-        final json = convert.jsonDecode(jsonString);
+        var newString = jsonString.replaceAllMapped(RegExp(r'\&#[0-9]*;'), (Match m) {
+          var value = m[0].replaceAll(RegExp(r'\D'), '');
+
+          return String.fromCharCode(int.parse(value));
+        });
+        final json = convert.jsonDecode(newString);
         final keyword = Keyword.fromJson(json);
         setData(keyword);
+
+        netWorkSuccess = true;
 
         return true;
       }

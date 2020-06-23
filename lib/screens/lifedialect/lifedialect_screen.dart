@@ -30,43 +30,59 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   }
 
   Widget filterSearchResults() {
+    var netWorkSuccess = lifeDialectProvider.netWorkSuccess;
 
     var list = items.where((item) {
       return (query == null || query == "") ?  true : item.name.contains(query);
     }).toList();
 
-    if(list.length == 0 || list.length == null) {
+    if (netWorkSuccess == true) {
+      if (list.length == 0 || list.length == null) {
+        return Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '조회된 정보가 없습니다',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black38),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      } else {
+        return ListView.builder(
+          shrinkWrap: true,
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          itemCount: list.length,
+          itemBuilder: (context, index) {
+            return LifeDialectItem(item: list[index]);
+          },
+        );
+      }
+    } else {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '조회된 정보가 없습니다',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black38
-                  ),
-                ),
-              ],
-            ),
+            Text(
+              '조회중입니다',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black38),
+            )
           ],
         ),
       );
-    }else{
-      return ListView.builder(
-        shrinkWrap: true,
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        itemCount: list.length,
-        itemBuilder: (context, index) {
-          return LifeDialectItem(item: list[index]);
-        },
-      );
     }
-
   }
 
   @override

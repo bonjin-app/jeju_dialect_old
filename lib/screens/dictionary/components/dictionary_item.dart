@@ -19,9 +19,11 @@ class DictionaryItem extends StatelessWidget {
         ));
       },
       title: Text(
-        item.name,
+        item.name.replaceAll('n', ' '),
         style: TextStyle(
+          fontFamily: 'Yethan',
           fontSize: 16,
+          fontWeight: FontWeight.w600
         ),
       ),
       trailing: Row(

@@ -9,29 +9,14 @@ class ProverbDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    String _name = item.name.replaceAll('\\\&\#', '');
-    String n = _name.replaceAll('\;','');
-    List<int> charCodes = [];
-
-    String q = '';
-
-    for(int i = 0; i<n.length; i++){
-      if(!(n.codeUnitAt(i) >= '0'.codeUnitAt(0) && n.codeUnitAt(i) <= '9'.codeUnitAt(0))){
-        charCodes.add(n.codeUnitAt(i));
-        q = '';
-      }else{
-        int num = int.parse(String.fromCharCode(n.codeUnitAt(i)));
-        q = q + num.toString();
-        if (q.length > 4) {
-          charCodes.add(int.parse(q));
-        }
-      }
-    }
-    String name = String.fromCharCodes(charCodes);
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('속담풀이'),
+        title: Text(
+            '속담풀이',
+            style: TextStyle(
+                color: Colors.black54
+            ),
+        ),
         backgroundColor: Color(0xffffc266),
       ),
       body: SingleChildScrollView(
@@ -48,7 +33,7 @@ class ProverbDetailScreen extends StatelessWidget {
                     Text(
                       '분류',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                       ),
                     ),
                     SizedBox(
@@ -62,7 +47,7 @@ class ProverbDetailScreen extends StatelessWidget {
                       height: 30,
                     ),
                     Text(
-                      name,
+                      item.name.replaceAll('n', ' ').replaceAll('\\', ''),
                       style: TextStyle(
                         fontFamily: 'Yethan',
                         fontSize: 18,
@@ -73,21 +58,24 @@ class ProverbDetailScreen extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      item.contents,
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                      item.contents.replaceAll('n', ' ').replaceAll('\\', ''),
+                      style: TextStyle(
+                          fontFamily: 'Yethan',
+                          fontSize: 18,
+                          color: Colors.grey),
                     ),
                     SizedBox(
                       height: 30,
                     ),
                     Text(
                       'English',
-                      style: TextStyle(fontSize: 18,),
+                      style: TextStyle(fontSize: 20,),
                     ),
                     SizedBox(
                       height: 8,
                     ),
                     Text(
-                      item.engContents,
+                      item.engContents.replaceAll('\\', ''),
                       style: TextStyle(fontSize: 18, color: Colors.grey),
                     ),
                     SizedBox(
@@ -95,13 +83,13 @@ class ProverbDetailScreen extends StatelessWidget {
                     ),
                     Text(
                       '中文',
-                      style: TextStyle(fontSize: 18,),
+                      style: TextStyle(fontSize: 20,),
                     ),
                     SizedBox(
                       height: 8,
                     ),
                     Text(
-                      item.chiContents,
+                      item.chiContents.replaceAll('n', ' ').replaceAll('\\', ''),
                       style: TextStyle(fontSize: 18, color: Colors.grey),
                     ),
                     SizedBox(
@@ -109,13 +97,13 @@ class ProverbDetailScreen extends StatelessWidget {
                     ),
                     Text(
                       '日本',
-                      style: TextStyle(fontSize: 18,),
+                      style: TextStyle(fontSize: 20,),
                     ),
                     SizedBox(
                       height: 8,
                     ),
                     Text(
-                      item.janContents,
+                      item.janContents.replaceAll('n', ' ').replaceAll('\\', ''),
                       style: TextStyle(fontSize: 18, color: Colors.grey),
                     ),
                   ],

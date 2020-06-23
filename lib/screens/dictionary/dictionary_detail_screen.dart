@@ -9,9 +9,18 @@ class DictionaryDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String name = item.name.replaceAll('\n', '');
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(item.name),
+        title: Text(
+            item.name.replaceAll('n', ' '),
+          style: TextStyle(
+              fontFamily: 'Yethan',
+              color: Colors.black54,
+              fontWeight: FontWeight.w600
+          ),
+        ),
         backgroundColor: Color(0xffffc266),
       ),
       body: SingleChildScrollView(
@@ -20,122 +29,94 @@ class DictionaryDetailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(
-                height: 8,
-              ),
-              Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "설명",
-                      style: TextStyle(
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      item.contents,
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 15),
-                    ),
-                    Text(
-                      "분류",
-                      style: TextStyle(
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      item.type,
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 15),
-                    ),
-                    Text(
-                      "관련서적",
-                      style: TextStyle(
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "item.book",
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "item.writer",
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
-                            ),
-                            Text(
-                              '  p.',
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
-                            ),
-                            Text(
-                              "item.page",
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 15),
-                    ),
-                    Text(
-                      "관련어",
-                      style: TextStyle(
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "item.index1",
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                        Text(
-                          ', ',
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                        Text(
-                          "item.index2",
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                        Text(
-                          ', ',
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                        Text(
-                          "item.index3",
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            SizedBox(
+            height: 8,
           ),
-        ),
+          Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "설명",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.contents.replaceAll('n', ' '),
+                  style: TextStyle(
+                      fontFamily: 'Yethan',
+                      fontSize: 18,
+                      color: Colors.grey),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 15),
+                ),
+                Text(
+                  "분류",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.index.replaceAll('n', ' '),
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 15),
+                ),
+                Text(
+                  'English',
+                  style: TextStyle(fontSize: 20,),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.engContents,
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  '中文',
+                  style: TextStyle(fontSize: 20,),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.chiContents.replaceAll('n', ' '),
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  '日本',
+                  style: TextStyle(fontSize: 20,),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.janContents.replaceAll('n', ' '),
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+          ],
+      ),
+    ),
       ),
     );
   }
