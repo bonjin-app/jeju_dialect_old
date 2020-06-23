@@ -19,6 +19,11 @@ class _ProverbScreenState extends State<ProverbScreen>{
   String query;
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     proverbProvider = Provider.of<ProverbProvider>(context, listen: false);

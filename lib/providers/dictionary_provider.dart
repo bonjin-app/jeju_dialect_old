@@ -31,7 +31,7 @@ class DictionaryProvider with ChangeNotifier {
     try {
 
       var queryParam = {
-        "pageSize" : "999",
+        "pageSize" : "999999999",
       };
       var uri = Uri.https(authority, dictionaryPath, queryParam);
       final response = await http.get(uri);
@@ -40,7 +40,7 @@ class DictionaryProvider with ChangeNotifier {
       if (response.statusCode == 200) {
         final body = response.body;
         final Xml2Json _parser = Xml2Json()..parse(body);
-        final jsonString = _parser.toParker().replaceAll('\\', '');
+        final jsonString = _parser.toParker().replaceAll('\\\\\\', '').replaceAll('\\\"', '').replaceAll('\\', '');
         var newString = jsonString.replaceAllMapped(RegExp(r'&#[0-9]*;'), (Match m) {
           var value = m[0].replaceAll(RegExp(r'\D'), '');
           return String.fromCharCode(int.parse(value));

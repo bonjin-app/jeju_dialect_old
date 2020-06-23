@@ -19,6 +19,11 @@ class _LifeDialectScreenState extends State<LifeDialectScreen> {
   String query;
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     lifeDialectProvider = Provider.of<LifeDialectProvider>(context, listen: false);

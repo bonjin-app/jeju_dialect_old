@@ -13,9 +13,10 @@ class NotationItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
+            margin: EdgeInsets.only(top: 24),
             padding: EdgeInsets.symmetric(vertical: 4),
             child: Text(
-                data.title,
+              data.title,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -50,7 +51,7 @@ class NotationSubItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
 
-        Container(
+        if(item.subTitle != null) Container(
           padding: EdgeInsets.only(top: 24),
           child: Text(
             item.subTitle,
@@ -85,7 +86,8 @@ class NotationSubItem extends StatelessWidget {
                   padding: EdgeInsets.only(top: 8),
                   child: Row(
                     children: <Widget>[
-                      Icon(Icons.album),
+//                      Icon(Icons.fiber_manual_record,
+//                      size: 12,),
                       SizedBox(width: 6),
                       Expanded(
                           child: Text(

@@ -19,6 +19,11 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
   String query;
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     dictionaryProvider =
