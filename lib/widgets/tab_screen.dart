@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jejudialect/models/notation.dart';
 import 'package:jejudialect/screens/home/home_screen.dart';
+import 'package:jejudialect/screens/notation/notation_screen.dart';
 import 'package:jejudialect/screens/search/search_screen.dart';
 import 'package:jejudialect/screens/setting/setting_screen.dart';
 
@@ -32,7 +34,7 @@ class _TabScreenState extends State<TabScreen> {
         },
         children: <Widget>[
           HomeScreen(),
-          FavoriteScreen(),
+          NotationScreen(),
           SettingScreen(),
         ],
       ),

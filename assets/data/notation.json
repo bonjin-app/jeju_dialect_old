@@ -1,0 +1,78 @@
+{
+  "data": [
+    {
+      "title": "제1장 총칙",
+      "item": [
+        {
+          "subTitle": "제1항 목적",
+          "subItem": [
+            {
+              "type": "subject",
+              "value": "제주어 표기법(이하 ‘이 표기법’)의 목적은 한글 맞춤법의 취지에 따라 제주 사람들이 쓰는 말의 표기 방법을 정하는 데 있다."
+            }
+          ]
+        },
+        {
+          "subTitle": "제2항 원리 및 방법",
+          "subItem": [
+            {
+              "type": "subject",
+              "value": "이 표기법은 형태소의 본디 꼴(원형)을 밝혀 적는 경우와 바뀐 꼴(변이형)을 적는 경우를 구별한다."
+            },
+            {
+              "type": "subject",
+              "value": "표기가 이미 굳어진 것은 그대로 허용한다."
+            }
+          ]
+        },
+        {
+          "subTitle": "제3항 범 위",
+          "subItem": [
+            {
+              "type": "subject",
+              "value": "이 표기법에서는 통합성과 포괄성을 기준으로 삼아서 제주어를 적는다."
+            }
+          ]
+        },
+        {
+          "subTitle": "제4항 자 모",
+          "subItem": [
+            {
+              "type": "subject",
+              "value": "이 표기법에서는 제주어의 음소와 아래의 자모들이 일치하도록 하여 제주어를 적는다."
+            },
+            {
+              "type": "image",
+              "value": "https://www.jeju.go.kr/pub/site/cul/images/sub/01.png"
+            },
+            {
+              "type": "image",
+              "value": "https://www.jeju.go.kr/pub/site/cul/images/sub/02.png"
+            },
+            {
+              "type": "subject",
+              "value": "다만, ‘ㅇ’은 모음으로 시작하는 음절의 초성 글자로도 쓰고, ‘ㅚ, ㅢ’는 한자 형태소를 적을 때만 쓴다."
+            }
+          ]
+        },
+        {
+          "subTitle": "제5항 합 자",
+          "subItem": [
+            {
+              "type": "subject",
+              "value": "자음은 초성 글자와 받침 글자로 적고, 모음은 중성 글자로 적는다."
+            },
+            {
+              "type": "subject",
+              "value": "제주어는 초성 글자와 중성 글자, 받침 글자를 모아서 적는다."
+            },
+            {
+              "type": "subject",
+              "value": "[붙임] 필요한 경우 자모의 결합도 사용할 수 있다."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
