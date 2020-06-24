@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "474807338598",
+    "firebase_url": "https://jejudialect.firebaseio.com",
+    "project_id": "jejudialect",
+    "storage_bucket": "jejudialect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474807338598:android:7477af1445c758d87b8fa7",
+        "android_client_info": {
+          "package_name": "kr.co.bonjin.jejudialect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474807338598-gvucpg87ah9854dkoaqqtm66rvhgafsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFWWUbUF_ncM5DIT7NdQMOqMzgRBqnzFo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474807338598-gvucpg87ah9854dkoaqqtm66rvhgafsn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:jejudialect/providers/dictionary_provider.dart';
 import 'package:jejudialect/providers/keyword_provider.dart';
 import 'package:jejudialect/providers/lifedialect_provider.dart';
@@ -7,6 +8,10 @@ import 'package:jejudialect/widgets/tab_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Device Portrait
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   runApp(MyApp());
 }
 

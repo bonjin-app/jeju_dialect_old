@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>474807338598-ub9ckees1c9gnosoa9rc2s4hk2rfq38s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.474807338598-ub9ckees1c9gnosoa9rc2s4hk2rfq38s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAc5fXGQAR7zMsN9bhLI6lbB463P8VJu04</string>
+	<key>GCM_SENDER_ID</key>
+	<string>474807338598</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>kr.co.bonjin.jejudialect</string>
+	<key>PROJECT_ID</key>
+	<string>jejudialect</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jejudialect.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:474807338598:ios:f51e0a2b1af8ae1c7b8fa7</string>
+	<key>DATABASE_URL</key>
+	<string>https://jejudialect.firebaseio.com</string>
+</dict>
+</plist>
