@@ -4,7 +4,7 @@
 
 
 ## Intro
-####제줏말싸미를 소개합니다.
+#### 제줏말싸미를 소개합니다.
 
 - [Android](https://play.google.com/store/apps/details?id=kr.co.bonjin.jejudialect)
 
@@ -15,4 +15,4 @@
 
 
 ## Tech
-####사용된 기술입니다.
+#### 사용된 기술입니다.
