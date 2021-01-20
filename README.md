@@ -16,4 +16,4 @@
 
 ## Tech
 #### 사용된 기술입니다.
-![이미지1](https://play-lh.googleusercontent.com/WNIWCzVj3D6wMX_vX_mmHbb9tSUUynPOZv0HkYb0ZxMDcSsyCXElWjpAuSZL4Csavg=w1351-h986-rw)
+![이미지1](https://play-lh.googleusercontent.com/WNIWCzVj3D6wMX_vX_mmHbb9tSUUynPOZv0HkYb0ZxMDcSsyCXElWjpAuSZL4Csavg=w1351-h986-rw){: width="25%"}
